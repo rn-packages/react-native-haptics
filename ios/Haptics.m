@@ -1,18 +1,15 @@
-#import "Haptics.h"
+//
+//  Haptics.h
+//  Haptics
+//
+//  Created by Anders Friis on 16/02/2020.
+//  Copyright © 2020 Facebook. All rights reserved.
+//
 
-@implementation Haptics
+#import <React/RCTBridgeModule.h>
 
-RCT_EXPORT_MODULE()
+@interface RCT_EXTERN_MODULE(Haptics, NSObject)
 
-// Example method
-// See // https://facebook.github.io/react-native/docs/native-modules-ios
-RCT_REMAP_METHOD(getDeviceName,
-                 findEventsWithResolver:(RCTPromiseResolveBlock)resolve
-                 rejecter:(RCTPromiseRejectBlock)reject)
-{
-  UIDevice *deviceInfo = [UIDevice currentDevice];
-
-  resolve(deviceInfo.name);
-}
+RCT_EXTERN_METHOD(trigger:(NSString *)type)
 
 @end
