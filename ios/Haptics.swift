@@ -1,5 +1,5 @@
 //
-//  Haptics.sw.swift
+//  Haptics.swift
 //  Haptics
 //
 //  Created by Anders Friis on 16/02/2020.
