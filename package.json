@@ -16,6 +16,7 @@
     "test": "jest",
     "ts": "tsc --noEmit",
     "pod": "cd example/ios && pod install && cd ../../",
+    "ios": "cd example && react-native run-ios && cd ..",
     "lint": "eslint --ext .js,.ts,.tsx .",
     "prepare": "bob build",
     "example": "yarn --cwd example",
