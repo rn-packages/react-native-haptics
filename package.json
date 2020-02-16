@@ -5,7 +5,6 @@
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
   "types": "lib/typescript/src/index.d.ts",
-  "react-native": "src/index.tsx",
   "files": [
     "src",
     "lib",
@@ -24,6 +23,16 @@
   "keywords": ["react-native", "ios", "android"],
   "repository": "https://github.com/rn-packages/react-native-haptics",
   "author": "rn-packages <af@andersfr.dk> (https://github.com/rn-packages)",
+  "contributors": [
+    {
+      "name": "Jason Kelly",
+      "email": "jason-kelly@live.dk"
+    },
+    {
+      "name": "Anders Friis",
+      "email": "af@andersfr.dk"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/rn-packages/react-native-haptics/issues"
@@ -78,6 +87,11 @@
   "@react-native-community/bob": {
     "source": "src",
     "output": "lib",
-    "targets": ["commonjs", "module", "typescript"]
+    "targets": [
+      ["commonjs", {"copyFlow": true}],
+      ["module", { "copyFlow":  true}],
+      ["aar", {"reverseJetify": false}],
+      "typescript"
+    ]
   }
 }
