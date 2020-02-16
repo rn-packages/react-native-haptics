@@ -1,9 +1,19 @@
 import { NativeModules } from 'react-native'
+import HapticsType from './types/HapticsType'
+export { HapticsType }
 
-type HapticsType = {
-  getDeviceName(): Promise<string>
+class Haptics {
+  private readonly haptics = NativeModules.Haptics
+
+  trigger = (type: HapticsType = HapticsType.selection) => {
+    try {
+      console.log('json', this.haptics)
+      //  this.haptics.trigger(type);
+      NativeModules.Haptics.trigger(type)
+    } catch (err) {
+      console.error('Haptics is not available, is the native module registered correct?')
+    }
+  }
 }
 
-const { Haptics } = NativeModules
-
-export default Haptics as HapticsType
+export default new Haptics()
