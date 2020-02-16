@@ -1,17 +1,15 @@
 import * as React from 'react'
-import { StyleSheet, View, Text } from 'react-native'
-import Haptics from 'react-native-haptics'
+import { StyleSheet, View, Button } from 'react-native'
+import Haptics, { HapticsType } from 'react-native-haptics'
 
 export default function App() {
-  const [deviceName, setDeviceName] = React.useState('')
-
-  React.useEffect(() => {
-    Haptics.getDeviceName().then(setDeviceName)
-  }, [])
+  const trigger = () => {
+    Haptics.trigger(HapticsType.impactHeavy)
+  }
 
   return (
     <View style={styles.container}>
-      <Text>Device name: {deviceName}</Text>
+      <Button title={'Test'} onPress={trigger} />
     </View>
   )
 }

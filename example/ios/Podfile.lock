@@ -336,7 +336,7 @@ SPEC CHECKSUMS:
   React-RCTText: 9ccc88273e9a3aacff5094d2175a605efa854dbe
   React-RCTVibration: a49a1f42bf8f5acf1c3e297097517c6b3af377ad
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
-  reactnativehaptics: 996a367ae848ef34b14d0d36c679e10444a597ad
+  reactnativehaptics: 92f11c9ccc89aaeaff13fae707836ccffb60ffff
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
 PODFILE CHECKSUM: be6bfa88a9b64ce09b930b9e6ab6dda2b9e6e648
