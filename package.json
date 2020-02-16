@@ -14,13 +14,17 @@
   ],
   "scripts": {
     "test": "jest",
-    "typescript": "tsc --noEmit",
+    "ts": "tsc --noEmit",
     "lint": "eslint --ext .js,.ts,.tsx .",
     "prepare": "bob build",
     "example": "yarn --cwd example",
     "bootstrap": "yarn example && yarn && cd example/ios && pod install"
   },
-  "keywords": ["react-native", "ios", "android"],
+  "keywords": [
+    "react-native",
+    "ios",
+    "android"
+  ],
   "repository": "https://github.com/rn-packages/react-native-haptics",
   "author": "rn-packages <af@andersfr.dk> (https://github.com/rn-packages)",
   "contributors": [
@@ -47,8 +51,10 @@
     "@types/react-native": "0.61.10",
     "commitlint": "^8.3.4",
     "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
+    "eslint-config-prettier": "^6.9.0",
+    "@typescript-eslint/eslint-plugin": "2.11.0",
+    "@typescript-eslint/parser": "2.11.0",
     "husky": "^4.0.1",
     "jest": "^25.1.0",
     "prettier": "^1.19.1",
@@ -56,30 +62,41 @@
     "react-native": "~0.61.5",
     "typescript": "^3.7.5"
   },
+  "resolutions": {
+    "@typescript-eslint/eslint-plugin": "2.11.0",
+    "@typescript-eslint/parser": "2.11.0"
+  },
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
   },
   "jest": {
     "preset": "react-native",
-    "modulePathIgnorePatterns": ["<rootDir>/lib/"]
+    "modulePathIgnorePatterns": [
+      "<rootDir>/lib/"
+    ]
   },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "yarn lint && yarn typescript"
+      "pre-commit": "yarn lint && yarn ts"
     }
   },
   "eslintConfig": {
-    "extends": ["@react-native-community", "prettier"],
+    "extends": [
+      "@react-native-community",
+      "prettier"
+    ],
     "rules": {
       "prettier/prettier": [
         "error",
         {
+          "semi": false,
           "singleQuote": true,
           "tabWidth": 2,
           "trailingComma": "es5",
-          "useTabs": false
+          "useTabs": false,
+          "printWidth": 120
         }
       ]
     }
@@ -88,9 +105,24 @@
     "source": "src",
     "output": "lib",
     "targets": [
-      ["commonjs", {"copyFlow": true}],
-      ["module", { "copyFlow":  true}],
-      ["aar", {"reverseJetify": false}],
+      [
+        "commonjs",
+        {
+          "copyFlow": true
+        }
+      ],
+      [
+        "module",
+        {
+          "copyFlow": true
+        }
+      ],
+      [
+        "aar",
+        {
+          "reverseJetify": false
+        }
+      ],
       "typescript"
     ]
   }

@@ -1,19 +1,19 @@
-import * as React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import Haptics from 'react-native-haptics';
+import * as React from 'react'
+import { StyleSheet, View, Text } from 'react-native'
+import Haptics from 'react-native-haptics'
 
 export default function App() {
-  const [deviceName, setDeviceName] = React.useState('');
+  const [deviceName, setDeviceName] = React.useState('')
 
   React.useEffect(() => {
-    Haptics.getDeviceName().then(setDeviceName);
-  }, []);
+    Haptics.getDeviceName().then(setDeviceName)
+  }, [])
 
   return (
     <View style={styles.container}>
       <Text>Device name: {deviceName}</Text>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -22,4 +22,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-});
+})

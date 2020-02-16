@@ -1,9 +1,9 @@
-import { NativeModules } from 'react-native';
+import { NativeModules } from 'react-native'
 
 type HapticsType = {
-  getDeviceName(): Promise<string>;
-};
+  getDeviceName(): Promise<string>
+}
 
-const { Haptics } = NativeModules;
+const { Haptics } = NativeModules
 
-export default Haptics as HapticsType;
+export default Haptics as HapticsType

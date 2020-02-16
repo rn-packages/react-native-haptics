@@ -1,12 +1,10 @@
-const path = require('path');
-const fs = require('fs');
-const blacklist = require('metro-config/src/defaults/blacklist');
-const escape = require('escape-string-regexp');
+const path = require('path')
+const fs = require('fs')
+const blacklist = require('metro-config/src/defaults/blacklist')
+const escape = require('escape-string-regexp')
 
-const root = path.resolve(__dirname, '..');
-const pak = JSON.parse(
-  fs.readFileSync(path.join(root, 'package.json'), 'utf8')
-);
+const root = path.resolve(__dirname, '..')
+const pak = JSON.parse(fs.readFileSync(path.join(root, 'package.json'), 'utf8'))
 
 const modules = [
   '@babel/runtime',
@@ -14,20 +12,18 @@ const modules = [
     ...pak.dependencies,
     ...pak.peerDependencies,
   }),
-];
+]
 
 module.exports = {
   projectRoot: __dirname,
   watchFolders: [root],
 
   resolver: {
-    blacklistRE: blacklist([
-      new RegExp(`^${escape(path.join(root, 'node_modules'))}\\/.*$`),
-    ]),
+    blacklistRE: blacklist([new RegExp(`^${escape(path.join(root, 'node_modules'))}\\/.*$`)]),
 
     extraNodeModules: modules.reduce((acc, name) => {
-      acc[name] = path.join(__dirname, 'node_modules', name);
-      return acc;
+      acc[name] = path.join(__dirname, 'node_modules', name)
+      return acc
     }, {}),
   },
 
@@ -39,4 +35,4 @@ module.exports = {
       },
     }),
   },
-};
+}
