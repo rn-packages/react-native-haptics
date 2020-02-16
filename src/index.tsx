@@ -7,9 +7,7 @@ class Haptics {
 
   trigger = (type: HapticsType = HapticsType.selection) => {
     try {
-      console.log('json', this.haptics)
-      //  this.haptics.trigger(type);
-      NativeModules.Haptics.trigger(type)
+      this.haptics.trigger(type)
     } catch (err) {
       console.error('Haptics is not available, is the native module registered correct?')
     }
